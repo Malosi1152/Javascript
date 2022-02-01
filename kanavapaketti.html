@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Kanavapaketti</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 7em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Kanavapaketti</h3>
+
+	<form>
+		<label>Paketin hinta:</label> 
+		<p><input type="text" id="hinta" size="4"> </p>
+
+		<label>Määräaika:</label> 
+		<p><input type="text" id="maaraaika" size="2"> </p>
+
+		<input type="button" value="Laske kokonaishinta" onclick="laskeHinta()">
+	</form>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 "use strict"
+	function laskeHinta() {
+
+		var pakettihinta = document.getElementById("hinta").value;
+		var aika = document.getElementById("maaraaika").value;
+		
+		var yhteensa = pakettihinta * aika;
+
+
+		document.getElementById("vastaus").innerHTML = "<p> Kokonaishinta on " + yhteensa.toFixed(2) + " euroa </p>";
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XX</title>
+
+<style type="text/css">
+label {
+  display: block;
+  width: 7em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Vakuutus</h3>
+
+	<form>
+		<p> <label>Vakuutusmaksu:</label> 
+		<input type="text" id="vakuutus" size="6" > </p>
+		<p> <label>Erien määrä:</label> 
+		<input type="text" id="erat" size="2"> </p>
+		<input type="button" value="Näytä erät" onclick="laskeVakuutus()">
+	</form>
+
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	function laskeVakuutus() {
+
+		var vakuutus = document.getElementById("vakuutus").value;
+		var erat = document.getElementById("erat").value;
+
+		var teksti = "";
+		var era = vakuutus / erat; 
+		
+
+		for (var i = 1; i <= erat; i++) {
+			teksti = teksti + i + ". erä " + era.toFixed(2) + " euroa<br>";
+		}
+
+
+		document.getElementById("vastaus").innerHTML = "<p>" + teksti + "</p>" ;
+	}
+	</script>
+</body>
+</html>

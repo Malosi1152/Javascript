@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Helsinki</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Helsinki</h3>
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	 function haeTiedot(){
+		
+
+		fetch("http://api.openweathermap.org/data/2.5/weather?lang=fi&q=helsinki&units=metric&APPID=b0d3c4e07e0991b5f17a98935e3603af")
+
+		.then(function(response){
+			return response.json();
+		})
+
+		.then(function(data){
+			document.getElementById('vastaus').innerHTML = "<p>" + 
+				data.weather[0].description + "<br>Lämpötila: " + data.main.temp  + "°" +
+				"<br>Tuuli: " + data.wind.speed + " m/s" + "<br>Pilvisyys: " + data.clouds.all + "%" +  "</<p>";
+		})
+
+		.catch(function(error){
+			console.error(error);
+			document.getElementById('vastaus').innerHTML =
+			 "<p>Pyyntö epäonnistui</p>";
+		})
+
+		
+	}
+	haeTiedot();
+
+	
+	</script>
+</body>
+</html>

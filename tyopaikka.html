@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XX</title>
+<script type="text/javascript"></script>
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Työpaikka</h3>
+
+	<form>
+		<p><label>Nimi:</label> 
+		<input type="text" id="nimi" size="9"> </p>
+		<p><label>Ikä:</label> 
+		<input type="text" id="ika" size="3"> </p>
+		<p><label>Ajokortti:</label> 
+			<input type="text" id="ajokortti" size="5"> </p>
+		<input type="button" value="Hae paikkaa" onclick="haePaikkaa()">
+	</form>
+
+	<div id="vastaus"></div>
+
+	<script type="text/javascript" src="lukuja.js"></script>
+
+	 <script type="text/javascript ">
+	 
+	function haePaikkaa() {
+		var nimi = document.getElementById("nimi").value;
+		var ika = document.getElementById("ika").value;
+		var ajokortti = document.getElementById("ajokortti").value;
+		
+		ajokortti = ajokortti.toUpperCase();
+
+		var teksti = "";
+
+		if (onkoLuku(ika) == false) {
+			teksti = nimi + ", anna ikäsi numerona";
+		}
+		else if (tarkastaKoko(ika, 18, 65) == false) {
+			teksti = nimi + ", valitettavasti ikäsi ei ole sopiva eli 18-65";
+		}
+		else if (ajokortti.indexOf("C") == -1) {
+			teksti = nimi + ", valitettavasti sinulta puuttuu C-kortti";
+		}
+		else {
+			teksti = nimi + ", voit hake kuljettajan paikkaa";
+		}
+
+
+
+		document.getElementById("vastaus").innerHTML = "<p>" + teksti + "</p>";
+	}
+
+
+	</script>
+</body>
+</html>

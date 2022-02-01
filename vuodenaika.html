@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>1. vuodenaika</title>
+
+<style type="text/css">
+label {
+  display: block;
+  width: 8em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>1.Vuodenaika</h3>
+
+	<form>
+		<label>Syntymäkuukausi:</label> 
+		<input type="text" id="kk" size="2"> 
+		<input type="button" value="Kerro vuodenaika" onclick="KerroKausi()">
+	</form>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	
+	function KerroKausi() {
+		var kk = document.getElementById("kk").value;
+		var kuukausi = kk;
+
+		if (kuukausi >= 3 && kuukausi <= 5) {
+			kuukausi = "kevät";
+		}
+		else if (kuukausi >= 6 && kuukausi <= 8){
+			kuukausi = "kesä";
+		}
+		else if (kuukausi >= 9 && kuukausi <= 11) {
+			kuukausi = "syksy";
+		}
+		else if (kuukausi == 12 || kuukausi == 1 || kuukausi == 2 ) {
+			kuukausi = "talvi";
+		}
+		else  {
+			kuukausi = "?";
+		}
+		
+		document.getElementById("vastaus").innerHTML = "<p>" + 
+			"Vuodenaika oli " + kuukausi + "</p>";
+	}
+	</script>
+</body>
+</html>

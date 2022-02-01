@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XX</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 6em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Autot</h3>
+
+	<div id="listaus"></div>
+
+	<form>
+		<p> <label>Etsittävä auto:</label> 
+		<input type="text" id="etsittava" size="7"> 
+		<input type="button" value="Etsi" onclick="etsi()"></p>
+	</form>
+	
+	<form>
+		<p><label>Lisää auto:</label> 
+		<input type="text" id="lisattava" size="4"> 
+		<input type="button" value="Lisää" onclick="lisaa()"></p> 
+	</form>
+
+	<div id="vastaus"></div>
+
+
+	
+	
+	 <script type="text/javascript">
+	 
+	 var autot = ["Nissan", "Opel", "Volvo", "Peugeot", "Audi"]
+
+	 listaa();
+
+
+
+	 
+	 function listaa(){
+	 	var teksti = "";
+
+	 	for (var i = 0; i < autot.length; i++) {
+		 teksti = teksti + autot[i] + "<br>";
+	 	}
+	 	document.getElementById("listaus").innerHTML = "<p>" + teksti + "</p>";
+	}
+
+
+
+
+
+
+	function etsi() {
+	
+		var etsittava = document.getElementById("etsittava").value;
+		var maara = 0;
+
+		for (i = 0; i < autot.length; i++) {
+			if (autot[i] == etsittava) {
+				maara = maara +1;
+			}
+		}
+		document.getElementById("vastaus").innerHTML = "<p>Autoa " +
+					etsittava + " oli " + maara + " kappaletta</p>";
+		}
+
+
+
+		
+
+	function lisaa(){
+		var lisattava = document.getElementById("lisattava").value;
+		var paikka = autot.length;
+		autot[paikka] = lisattava;
+
+		listaa();
+	}
+
+	</script>
+</body>
+</html>

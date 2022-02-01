@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Nimitehtävä</title>
+
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Nimitehtävä</h3>
+
+	<form>
+		<label>Nimi:</label> 
+		<input type="text" id="nimi" size="15"> 
+		<input type="button" value="Näytä" onclick="nayta()">
+	</form>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	function nayta() {
+		var nimi = document.getElementById("nimi").value;
+
+		var suurella = nimi.toUpperCase();
+		var pienella = nimi.toLowerCase();
+		var maarat = nimi.length;
+		var eka = nimi.charAt(0);
+		var kolme = nimi.substr(0,3);
+
+		
+		document.getElementById("vastaus").innerHTML = "<p> Suurella: " + suurella + "<br>Pienellä: "
+			 + pienella + "<br>Merkkien määrä: " + maarat + "<br>Eka merkki: " + eka + "<br>Kolme ekaa merkkiä: " + kolme;
+	}
+	</script>
+</body>
+</html>

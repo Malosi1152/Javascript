@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Palkkalaskuri</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 6em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Palkkalaskuri</h3>
+
+	<form>
+		<label>Bruttopalkka:</label> 
+		<p><input type="text" id="brutto" size="5"> </p> 
+		<label>Veroprosentti:</label> 
+		<p><input type="text" id="vero" size="3"> </p> 
+
+		<input type="button" value="Laske palkka" onclick="palkkalasku()">
+	</form>
+	<div id="vastaus"></div>
+	
+
+	 <script type="text/javascript">
+	"use strict"
+	function palkkalasku() {
+		
+		var bruttopalkka = document.getElementById("brutto").value;
+		var veroprosentti = document.getElementById("vero").value;
+
+		var veronosuus = bruttopalkka * veroprosentti / 100.0;
+	console.log(veronosuus);
+		var tyoelake = bruttopalkka * 0.0675;
+		var tyttomyysvak = bruttopalkka * 0.015;
+		var kateenjaa = bruttopalkka - veronosuus - tyttomyysvak - tyoelake;
+
+		
+		document.getElementById("vastaus").innerHTML = "<p>Veron osuus " + veronosuus.toFixed(2) +
+			"<br> Työeläkevakuutusmaksun osuus " + tyoelake.toFixed(2) + 
+			" <br> Työttömyysvakuutuksen osuus " + tyttomyysvak.toFixed(2) +
+			" <br> Käteen jää " + kateenjaa.toFixed(2); "</p>"
+	}
+	</script>
+</body>
+</html>

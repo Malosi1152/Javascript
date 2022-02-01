@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Matkakulut</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Matkakulut</h3>
+
+	<form>
+		<p><label>Matkakulut:</label> 
+		<input type="text" id="kulut" size="5"> euroa </p> 
+		<input type="button" value="Laske" onclick="tuoKulut()">
+	</form>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	function tuoKulut() {
+		var kulut = parseInt(document.getElementById("kulut").value);
+		
+		var vahennys = laskeVahennys(kulut);
+
+		if (kulut < 750) {
+			vahennys = 0;
+		}
+
+
+		document.getElementById("vastaus").innerHTML = "<p>" + "Vähennys on " + vahennys.toFixed(2);
+	}
+
+	function laskeVahennys(kulut) {
+		var vahennys = kulut - 750;
+		return vahennys;
+		
+	}
+	</script>
+</body>
+</html>

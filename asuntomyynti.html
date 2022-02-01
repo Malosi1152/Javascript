@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Asuntomyynti</title>
+
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Asuntomyynti</h3>
+
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	
+	var asunto = {
+		tyyppi : "kerrostalo",
+		kunta : "Espoo",
+		rakennusvuosi : 1974,
+		osoite : "Othbackantie 3 a 2 07800 Loviisa",
+		kuvaus : "Reilun kokoinen pikkukoti Kivenlahdesta. Rauhallinen sijainti ja hyvä pohjaratkaisu. Keittiöön mahtuu ruokapöytä.",
+		hinta : { tyyppi : "velaton", arvo : 109838},
+		pinta_ala : 34.5,
+		vapautuminen : "Heti",
+		remontit : [
+			{"vuosi" : 1995, "kuvaus" : "Patteritermostaatit uusittu"},
+			{"vuosi" : 1978, "kuvaus" : "ikkunamaalauksia"},
+			{"vuosi" : 1955, "kuvaus" : "B ja C talon kylmävesirunkolinja uusittu"},
+			{"vuosi" : 1988, "kuvaus" : "ulkosivun ja parvekkeiden uusiminen"}
+		]	
+	};
+
+	function listaa() {
+	
+		var teksti = "Tyyppi: " + asunto.tyyppi + "<br>",
+		teksti = teksti + "Rakennusvuosi: " + asunto.rakennusvuosi + "<br>",
+		teksti = teksti + "Osoite: " + asunto.osoite  + "<br>",
+		teksti = teksti + "Kuvaus: " + asunto.kuvaus  + "<br>",
+		teksti = teksti + "Hinta: " + asunto.hinta.arvo + " " + asunto.hinta.tyyppi  + "<br>",
+		teksti = teksti + "Remontit: "  + "<br>";
+
+		
+		for (var i = 0; i < asunto.remontit.length; i++) {
+			teksti = teksti + asunto.remontit[i].vuosi + " " + asunto.remontit[i].kuvaus + "<br>";
+
+		}
+
+		
+		document.getElementById("vastaus").innerHTML = "<p>" + teksti + "</p>";
+	}
+	listaa();
+
+	</script>
+</body>
+</html>

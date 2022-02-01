@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XX</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Vitsit</h3>
+
+
+	<script type="text/javascript" src="https://myy.haaga-helia.fi/~swd1ta001/koodit/vitsit.js"></script>
+
+	<div id="vitsi"></div>
+
+	<script type="text/javascript">
+	var vanhapaikka = 0, paikka = 0;
+
+	function vaihdaVitsi() {
+
+		vanhapaikka = paikka;
+		while ( vanhapaikka == paikka) {
+		paikka = Math.floor((Math.random() * vitsit.length));
+	}
+
+	document.getElementById("vitsi").innerHTML = "<p>" + vitsit[paikka] + "<p>";
+	}
+
+	vaihdaVitsi();
+
+		setInterval(vaihdaVitsi, 9000);
+			
+	</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Avaruuskuva</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Avaruuskuva</h3>
+
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+
+	function haeData() {
+		
+		fetch("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
+
+		.then(function(response) {
+			return response.json();
+		})
+
+		.then (function(data) {
+			kasitteleData(data);
+
+		})
+		
+		.catch(function(error) {
+			console.error(error);
+			document.getElementById("vastaus").innerHTML = "<p>Pyyntö epäonnistui</p>";
+		})
+	}
+		function kasitteleData(data){
+		
+	
+
+		var newElem;
+		if (data.media_type == 'image') {
+			newElem = document.createElement('img');
+			newElem.src = data.url;			
+		}
+		else if(data.media_type == 'video') {
+			newElem = document.createElement('iframe');
+			newElem.src = data.url;
+		}
+		
+		document.getElementById('vastaus').appendChild(newElem);
+		
+	}
+	haeData();
+
+	</script>
+</body>
+</html>

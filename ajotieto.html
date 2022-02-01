@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajotieto</title>
+
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Ajotieto</h3>
+
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+		var ajo = {
+			rekisterinro : "XYZ-123",
+			etunimi : "Risto",
+			sukunimi : "Reipas",
+			alku : { lukema : 32500, paiva : "2018-10-28", kello : "13:30", paikka : "Ratapihantie 13, Helsinki"},
+			loppu : { lukema : 32510, paiva : "2018-10-28", kello : "13:50", paikka : "Hietakummuntie 1, Helsinki"},
+			yhteensa : function (){
+				return (this.loppu.lukema - this.alku.lukema);
+			}	
+		}
+	
+
+	function laske(){
+				teksti = "Nimi: " + ajo.sukunimi + " " + ajo.etunimi + "<br>";
+				teksti = teksti + "Rekisterinumero: " + ajo.rekisterinro + "<br>";
+				teksti = teksti + "Mistä: " + ajo.alku.paikka + "<br>";
+				teksti = teksti + "Minne: " + ajo.loppu.paikka + "<br>";
+				teksti = teksti + "Kilometrit: " + ajo.yhteensa() + " km";
+
+			document.getElementById("vastaus").innerHTML = "<p>" + teksti + "</p>";
+		
+		}
+		laske();
+		
+	
+	</script>
+</body>
+</html>

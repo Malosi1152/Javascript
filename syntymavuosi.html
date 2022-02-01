@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Syntymävuosi</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 7em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Syntymävuosi</h3>
+
+	<form>
+		<label>Syntymävuosi:</label> 
+		<input type="text" id="vuosi" size="4"> 
+		<input type="button" value="Kerro ikä" onclick="laskeIka()">
+	</form>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	function laskeIka() {
+		var ika = document.getElementById("vuosi").value;
+		var tanaan = new Date();
+		var vuosi = tanaan.getFullYear(),
+
+		lasku = syntymaVuosi(vuosi, ika);
+		
+		if ( ika > vuosi) {
+			vastaus = "<p>" + "Syntymävuosi ei voi olla tulevaisuudessa" + "</p>";
+		}
+
+		else if (ika < vuosi){
+			vastaus = "<p>Olet tänä vuonna " + lasku + " vuotta." + "</p>";
+		}
+
+		document.getElementById("vastaus").innerHTML = vastaus;
+	}
+
+	function syntymaVuosi(vuosi, ika) {
+		var lasku = vuosi - ika;
+		return lasku;
+	}
+
+	</script>
+</body>
+</html>

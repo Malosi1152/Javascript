@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Polttoainelaskuri</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Polttoainelaskuri</h3>
+
+	<form>
+		<label>Kilometrit:</label> 
+		<p><input type="text" id="km" size="4"> </p>
+		<label>Kulutus:</label> 
+		<p><input type="text" id="kulutus" size="4"> </p>
+		<label>Litrahinta:</label> 
+		<p><input type="text" id="litrahinta" size="4"> </p>
+		<label>Määrä:</label> 
+		<p><input type="text" id="henkilot" size="4"> </p>
+
+		<input type="button" value="Laske" onclick="polttoaineLaskuri()">
+	</form>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 "use strict"
+	function polttoaineLaskuri() {
+		
+		var kilometrit = document.getElementById("km").value;
+		var kulutus = document.getElementById("kulutus").value;
+		var litrahinta = document.getElementById("litrahinta").value;
+		var henkilomaara = document.getElementById("henkilot").value;
+
+		var maksettava = kulutus / 100.0 * litrahinta * kilometrit / henkilomaara;
+		
+		document.getElementById("vastaus").innerHTML = "<p> Polttoaine per henkilö on " + maksettava.toFixed(2) + " euroa </p>";
+	}
+	</script>
+</body>
+</html>

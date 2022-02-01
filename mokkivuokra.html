@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mökkivuokra</title>
+
+<style type="text/css">
+label {
+  display: block;
+  width: 6em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Mökkivuokra</h3>
+
+	<form>
+		<label>Vuokra:</label> 
+		<p><input type="text" id="hinta" size="5"> </p>
+		<label>Osallistujat:</label> 
+		<p><input type="text" id="osallistujat" size="3"> </p>
+
+		<input type="button" value="Laske vuokra" onclick="henkiloOsuus()">
+	</form>
+	<div id="vastaus"></div>
+	
+
+	 <script type="text/javascript">
+	 "use strict"
+	function henkiloOsuus() {
+
+		var summa = document.getElementById("hinta").value;
+		var henkilot = document.getElementById("osallistujat").value;
+		
+		var yhteensa = (summa / henkilot);
+
+		document.getElementById("vastaus").innerHTML = "<p> Vuokra per henkilö on " + yhteensa.toFixed(2) + " euroa </p>";
+	}
+	</script>
+</body>
+</html>

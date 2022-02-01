@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Veriryhmä</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 9em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Veriryhmä</h3>
+
+	<form>
+		<label>Haettava veriryhmä:</label> 
+		<input type="text" id="ryhma" size="4"> 
+		<input type="button" value="Kerro" onclick="kerroRyhma()">
+	</form>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+		 
+	 
+	 var veriryhmat = ["A+", "O-", "AB+", "O+", "AB+", "AB+", "O-", "AB+", "O+", "AB+"];
+	kerroRyhma();
+
+	 function kerroRyhma() {
+		var ryhma = document.getElementById("ryhma").value;
+		var veri = ryhma;
+		teksti = "";
+		
+		var maara = 0;
+		for (var i = 0; i < veriryhmat.length; i++){
+			if (veriryhmat[i] == veri){
+				maara = maara + 1;	
+			}	
+		}
+		document.getElementById("ryhma").value = "";
+
+		document.getElementById("vastaus").innerHTML = "<p>" + "Veriryhmiä " + veri + " on " + maara + teksti + " kappaletta" + "</p>";}
+	
+	</script>
+</body>
+</html>

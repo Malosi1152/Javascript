@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XX</title>
+
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Noppa C - for</h3>
+
+	<div id="vastaus3"></div>
+
+	 <script>
+
+		 var kuutosia = 0;
+		 for (var i = 0; i < 50; i++) {
+			 noppa = Math.floor((Math.random() * 6) + 1);
+			 if (noppa == 6) {
+				 kuutosia = kuutosia + 1;
+			 }
+		 }
+
+
+		document.getElementById("vastaus3").innerHTML =
+		"50:sta arvonnasta 6 tuli " + kuutosia + " kertaa";
+
+	</script>
+</body>
+</html>

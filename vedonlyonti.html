@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Painonpudotus</title>
+
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Painonpudotus vedonlyönti</h3>
+
+	<form>
+		<label>Lähtöpaino:</label> 
+		<input type="text" id="paino" size="3"> 
+		<input type="button" value="Näytä tavoitepainot" onclick="laskePaino()">
+	</form>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	function laskePaino() {
+
+		var paino = document.getElementById("paino").value;
+		var painonlasku = paino * (0.1 / 7);
+		var teksti = " ";
+		var viikko = 0;
+		
+
+		for (var i = 1; i <= 7; i++) {
+			paino = paino - painonlasku;
+			viikko = viikko + 1;
+			teksti = teksti + viikko +". viikon jälkeen " + paino.toFixed(1) + "<br>";
+
+		}
+		
+		document.getElementById("vastaus").innerHTML = "<p>" + teksti + "</p>";
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sakkolaskuri</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Sakkolaskuri</h3>
+
+	<form>
+		<label>Nettotulot:</label> 
+		<input type="text" id="tulo" size="3"> 
+		<input type="button" value="Laske päiväsakko" onclick="paivaSakko()">
+	</form>
+	<div id="vastaus"></div>
+	
+
+	 <script type="text/javascript">
+	 "use strict"
+	function paivaSakko() {
+		var nettotulo = document.getElementById("tulo").value;
+		var yhteensa = (nettotulo - 255) / 60;
+		
+
+		document.getElementById("vastaus").innerHTML = "<p> Päiväsakko on " + yhteensa.toFixed(2);
+	}
+
+	</script>
+</body>
+</html>

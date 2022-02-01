@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XX</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Keskiarvo koetuloksista</h3>
+
+	<form>
+		<label>Koepisteet:</label> 
+		<input type="text" id="koepiste" size="5"> 
+		<input type="button" value="Lisää" onclick="lisaaKoepiste()">
+		<input type="button" value="Laske keskiarvo" onclick="laskeKeskiarvo()">
+	</form>
+
+	<div id="vastaus"></div>
+	<div id="keskiarvo"></div>
+	
+	 <script type="text/javascript">
+	
+	var koepisteet = [];
+
+	function lisaaKoepiste() {
+		var koepiste = document.getElementById("koepiste").value;
+		var paikka = koepisteet.length;
+		koepisteet [paikka] = koepiste;
+		
+		document.getElementById("koepiste").value = "",
+		document.getElementById("keskiarvo").value = "",
+		
+		naytaKoepisteet();
+	}
+	function naytaKoepisteet() {
+			var teksti = "";
+			for ( var i = 0; i < koepisteet.length; i++) {
+				teksti = teksti + koepisteet[i] + " ";
+
+			}
+
+		document.getElementById("vastaus").innerHTML = "<p>" + "Koepisteet ovat " + teksti + "</p>";
+	}
+
+	function laskeKeskiarvo() {
+		var summa = 0;
+		for ( var i = 0; i < koepisteet.length; i++){
+			summa = summa + parseInt(koepisteet[i]);
+		}
+
+		if (koepisteet.length > 0) {
+			var keskiarvo = summa / koepisteet.length;
+			document.getElementById("keskiarvo").innerHTML = "<p>" 
+				+ "Keskiarvo tähän mennessä on " + keskiarvo.toFixed(2) + "</p>";
+		}else {
+				document.getElementById("keskiarvo").innerHTML = 
+				"<p>Keskiarvoa ei voi laskea</p>";
+			}
+	}
+	</script>
+</body>
+</html>

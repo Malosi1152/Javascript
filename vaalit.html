@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vaalit</title>
+
+<style type="text/css">
+label {
+  display: block;
+  width: 9em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Vaalit</h3>
+
+	<form>
+		<p>
+			<label>Kokonaisäänimäärä:</label> 
+			<input type="text" id="aanimaara" size="5"> 
+		</p> 
+		<p>
+			<label>Ehdokkaiden määrä:</label> 
+			<input type="text" id="ehdokkaat" size="5"> 
+		<p> <input type="button" value="Näytä vertaisluvut" onclick="laskeVertaisluvut()">
+		
+	</form>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	function laskeVertaisluvut() {
+		var aanimaara = parseFloat(document.getElementById("aanimaara").value);
+		var ehdokkaat = parseFloat(document.getElementById("ehdokkaat").value);
+		var ehdokkaidenmaara = ehdokkaat;
+		var teksti = " ";
+		var maara = aanimaara;
+		var lkm = 0;
+
+	
+		for ( var i = 1; i <= ehdokkaat; i++) {
+			maara = aanimaara / i;
+			lkm = lkm + 1;
+			teksti = teksti + lkm + ". "  + maara.toFixed(0) + "<br>"
+		
+			
+			
+		}
+		document.getElementById("vastaus").innerHTML = "<p>" + teksti + "<p>";
+	}
+	</script>
+</body>
+</html>
+
+

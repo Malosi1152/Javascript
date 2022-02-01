@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sanalasku</title>
+
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Sanalasku</h3>
+
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	
+	function haeSanalasku() {
+		
+		fetch("https://quotes.rest/qod?category=students")
+
+		.then(function (response) {
+			return response.json();
+		})
+
+		.then (function (data) {
+			document.getElementById("vastaus").innerHTML = 
+			"<p>" + data.contents.quotes[0].quote + "<br>- " 
+				+ data.contents.quotes[0].author + " -<br>";
+		})
+
+		.catch(function(error) {
+			console.error(console.error);
+			document.getElementById("vastaus").innerHTML = 
+			"<p>Koodauksessa tuli virhe </p>"
+		})
+	}
+
+	haeSanalasku();
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mökkireissun palkinto</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Mökkireissun palkinto</h3>
+
+	<form>
+		<label>Nimi:</label> 
+		<input type="text" id="lisattava" size="9"> 
+		<input type="button" value="Lisää" onclick="lisaaHenkilo()">
+		<input type="button" value="Arvo" onclick="arvoVoittaja()">
+	</form>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	 var nimet = [];
+	 
+	function lisaaHenkilo() {
+		var lisattava = document.getElementById("lisattava").value;	
+		var voittaja = lisattava;
+		nimet.push(lisattava);
+
+
+		document.getElementById("lisattava").value = "";
+
+		document.getElementById("vastaus").innerHTML = "<p>" + "Annetut nimet: " 
+			+ nimet + "</p>";
+
+	}
+	function arvoVoittaja(){
+		var voittaja = Math.floor(Math.random() * nimet.length);
+		var voittaja = nimet[voittaja];
+	
+		document.getElementById("vastaus").innerHTML = "<p>" + "Annetut nimet: " 
+			+ nimet + "<br>Voittaja on " + voittaja + "</p>";
+			
+	}
+	</script>
+</body>
+</html>

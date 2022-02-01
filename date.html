@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>3. Date</title>
+
+<style type="text/css">
+label {
+  display: block;
+  width: 11em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>3. Date</h3>
+
+	<form>
+		<label>Päivämäärä(vvvv-kk-pp):</label> 
+		<input type="text" id="paivamaara" size="8"> 
+		<input type="button" value="Kerro viikonpäivä" onclick="kerroPaiva()">
+	</form>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	function kerroPaiva() {
+		var paivamaara = document.getElementById("paivamaara").value;
+		paivamaara = paivamaara.trim();
+
+		var vv = paivamaara.substring(0, 4);
+		var kk = paivamaara.substring(5, 7);
+		var pp = paivamaara.substring(8, 10);
+
+		var paiva = new Date();
+		paiva.setFullYear(vv);
+		paiva.setMonth(kk - 1);
+		paiva.setDate(pp);
+
+		var vpaivaNumero = paiva.getDay();
+		var viikonpaivat = ["sunnuntai", "maanantai", "tiistai", "keskiviikko", "torstai", "perjantai", "lauantai"];
+		var vpaiva = viikonpaivat[vpaivaNumero];
+		
+		document.getElementById("vastaus").innerHTML = "<p>"+ "Viikonpäivä on "+ vpaiva + "</p>";
+	}
+	</script>
+</body>
+</html>

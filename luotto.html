@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Luottolaskuri</title>
+
+<style type="text/css">
+label {
+  display: block;
+  width: 7em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Luottolaskuri</h3>
+
+	<form>
+		<p>
+			<label>Luoton määrä:</label> 
+			<input type="text" id="luotto" size="10"> 
+		</p> 
+		<p>
+			<label>Erien määrä:</label> 
+			<input type="text" id="erat" size="3"> 
+		</p> 
+			<input type="button" value="Näytä erät" onclick="laskeLuotto()">
+	</form>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	function laskeLuotto() {
+
+		var luotto = document.getElementById("luotto").value;
+		var erat = document.getElementById("erat").value;
+		
+		var jaljella = luotto;
+		var maksettava = Math.ceil( luotto / erat);
+		var teksti = "";
+
+		for (var i = 1; i <= erat; i++) {
+			if (jaljella - maksettava < 0) {
+				maksettava = jaljella;
+			}
+			jaljella = jaljella - maksettava;
+			
+			teksti = teksti + "Maksettava " + maksettava.toFixed(2) +
+			 " euroa, jäljellä " + jaljella.toFixed(2) + " euroa.<br>";
+		}
+
+		document.getElementById("vastaus").innerHTML = "<p>" + teksti + "</p>";
+	}
+	</script>
+</body>
+</html>

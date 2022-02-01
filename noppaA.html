@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XX</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Noppa A - while</h3>
+
+	<div id="vastaus1"></div>
+	
+	 <script>
+	 var noppa = Math.floor((Math.random() * 6) + 1);
+	 var kerrat = 1;
+
+	while (noppa != 6) {
+		noppa = Math.floor(( Math.random() * 6) +1);
+		kerrat = kerrat + 1;
+	}	
+
+		document.getElementById("vastaus1").innerHTML = kerrat + ":llä kerralla tuli noppa 6";
+	
+	</script>
+</body>
+</html>

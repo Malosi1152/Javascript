@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hetu</title>
+
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Hetu</h3>
+
+	<form>
+		<label>Hetu:</label> 
+		<input type="text" id="hetu" size="9"> 
+		<input type="button" value="Kerro" onclick="otaHetu()">
+	</form>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	function otaHetu() {
+		var hetu = document.getElementById("hetu").value;
+		var numero = hetu.charAt(9);
+
+		
+		var paiva = hetu.substr(0,2);
+		var kuukausi = hetu.substr(2,2);
+		var vuosi = hetu.substr(4,2);
+
+
+		if ((numero % 2) == 0) {
+			sukupuoli = "nainen";
+		}else {
+			sukupuoli = "mies";
+		}
+
+		var vv = parseInt(vuosi);
+		var valimerkki = hetu.charAt(6)
+
+		if (valimerkki == "+") {
+			vv = 18;
+		} else if (valimerkki == "-") {
+			vv = 19;
+		}else {
+			vv = 20;
+		}
+
+		var vastaus = laskeVuosi(vuosi, vv)
+
+		document.getElementById("vastaus").innerHTML = "<p>Sukupuoli on " 
+			+ sukupuoli + ".<br>Syntymäpäivä on " + paiva + "." + kuukausi + 
+			"." + vastaus + "." + "</p>";
+	}
+
+	function laskeVuosi(vuosi, vv) {
+		var vastaus = vv + vuosi;
+		return vastaus;
+	}	
+
+	</script>
+</body>
+</html>

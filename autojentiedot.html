@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Autojentiedot</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Autojentiedot</h3>
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	var autot = [
+		{
+			rekistrerinro : "ZXC-123",
+			omistaja : "Pekka Reipas",
+			merkki : "Aston",
+			malli : "Martin",
+			vuosi : "1964"
+		},
+		{
+			rekistrerinro : "LJG-578",
+			omistaja : "Maija Meikäläinen",
+			merkki : "Morris",
+			malli : "Mini",
+			vuosi : "1975"
+		},
+		{
+			rekistrerinro : "MUO-998",
+			omistaja : "Lovisa Silfvenius",
+			merkki : "Renault",
+			malli : "Golf",
+			vuosi : "2016"
+		}
+	];
+
+
+	function listaa() {
+		var teksti = "";
+
+		for (var i = 0; i < autot.length; i++) {
+			teksti = teksti + "<p>Nimi: " + autot[i].omistaja + "<br>";
+			teksti = teksti + "Rekisterinumero: " + autot[i].rekistrerinro  + "<br>";
+			teksti = teksti + "Auto: " + autot[i].merkki + " " + autot[i].malli  + "<br>";
+			teksti = teksti + "Vuosimalli: " + autot[i].vuosi + "</p>"
+		}
+
+		document.getElementById("vastaus").innerHTML = teksti;
+	}
+
+	listaa();
+
+	</script>
+</body>
+</html>

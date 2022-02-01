@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tietokilpailu</title>
+
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h1>Tietokilpailu</h1>	
+	<h3>Mikä maa on viljapinta-alaltaan maailman suurin?</h3>
+
+	<form>
+		<label>Vastaus:</label> 
+		<input type="text" id="vastaus" size="12"> 
+		<input type="button" value="Vastaa" onclick="kasittele()">
+	</form>
+
+	<p id="palaute"></p>
+
+	
+	 <script type="text/javascript">
+
+function kasittele() {
+			// Lomakekentän arvo
+			var vastaus = document.getElementById("vastaus").value;
+
+			if (tarkista(vastaus)) {
+				annaPalaute("Onnittelut, vastaus on oikein!", "lime");
+			} else {
+				annaPalaute("Vastaus on väärin, yritä uudelleen", "red");
+			}
+		}
+
+	function tarkista(vastaus) {
+			vastaus = vastaus.trim();
+			vastaus = vastaus.toLowerCase();
+			if (vastaus == "kanada") {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		function annaPalaute(teksti, vari) {
+			var palauteElem = document.getElementById("palaute")
+			palauteElem.style.color=vari;
+			palauteElem.innerHTML = teksti;
+		}
+
+
+
+	</script>
+</body>
+</html>

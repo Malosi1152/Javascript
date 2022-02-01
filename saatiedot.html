@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Säätiedot</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Säätiedot</h3>
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+		var saatila = {
+			weather : [
+					{id : 803,
+					main : "Clouds",
+					description : "hajanaisia pilivä",
+					icon : "04n"}
+				],
+				main : {
+					temp : -3.11,
+					pressure : 995,
+					humidity : 75,
+					temp_min : -5.56,
+					temp_max : 1.67
+				},
+				wind :{
+					speed : 5.1,
+					deg : 240
+				},
+				clouds : {
+					all : 75
+				}
+		}
+
+	function naytaSaa() {
+		teksti = "";
+
+		var teksti = "Lämpötila: " + saatila.main.temp + "°" + "<br>" + "Tuuli: " + saatila.wind.speed + " m/s"+ "<br>" +
+		"Pilvisyys: " + saatila.clouds.all + " %<br>";
+
+		for(var i = 0; i < saatila.weather.length; i++){
+			teksti = teksti + saatila.weather[i].description;
+		}
+		
+		document.getElementById("vastaus").innerHTML = "<p>" + teksti + "</p>";
+	}
+
+	naytaSaa();
+
+	</script>
+</body>
+</html>

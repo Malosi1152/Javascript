@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Kurssit</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Kurssit</h3>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	 var kurssit = [
+	 {	nimi : "Orientaatio digitaalisiin palveluihin",
+		tunnus : "DIG1TA001",
+		laajuus : 5,
+		aloitus : "1. lukukausi"},
+
+	{	nimi : "Orientaatio ohjelmistotuotantoon",
+		tunnus : "SWD1TA001",
+		laajuus : 5,
+		aloitus : "1. lukukausi"},
+
+	{	nimi : "Orientaatio ICT ja liiketoiminta",
+		tunnus : "BIG1TA001",
+		laajuus : 5,
+		aloitus : "1. lukukausi"},
+
+	{	nimi : "Orientaatio ICT-infrastruktuuriin",
+		tunnus : "BIG1TA001",
+		laajuus : 5,
+		aloitus : "1. lukukausi"},
+		
+	{	nimi : "Ruotsin kielioppi ja rakenteet",
+		tunnus : "SWE8TA062",
+		laajuus : 3,
+		aloitus : "1. lukukausi"},
+		
+	{	nimi : "Työvälineet myynnin ja palvelun ympäristössä",
+		tunnus : "SAL1TA001",
+		laajuus : 5,
+		aloitus : "1. lukukausi"},
+	 ];
+
+	function naytaTiedot() {
+		var teksti = "";
+
+		for (var i = 0; i < kurssit.length; i++) {
+			teksti = teksti + "<p>Tunnus: " + kurssit[i].tunnus + "<br>";
+			teksti= teksti + "Nimi: " + kurssit[i].nimi + "<br>";
+			teksti = teksti + "Laajuus: " + kurssit[i].laajuus + "<br>";
+			teksti = teksti + "Aloitus: " + kurssit[i].aloitus + "</p>"
+		}
+
+	
+
+		document.getElementById("vastaus").innerHTML = teksti;
+	}
+	naytaTiedot();
+
+	</script>
+</body>
+</html>

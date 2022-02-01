@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Työpaikat</title>
+
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Työpaikat</h3>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	function haeTyopaikat() {
+		fetch("http://gis.vantaa.fi/rest/tyopaikat/v1/Opetusala")
+
+		.then(function(response){
+		return response.json();
+		})
+
+		.then(function(data){
+			listaaTyopaikat(data);
+		})
+
+		.catch(function(error) {
+			console.error(error);
+			document.getElementById("vastaus").innerHTML = "<p>Työpaikkoja ei pstyt hakemaan</p>";
+		})
+	}
+
+	function listaaTyopaikat(tyopaikat){
+		var teksti = "";
+		for(var i = 0; i < tyopaikat.length; i++) {
+			teksti = teksti + "<p><b>" + tyopaikat[i].tyotehtava + 
+				"</b><br>Osoite: " + tyopaikat[i].osoite + "<br>Haku päättyy: " 
+				+ tyopaikat[i].haku_paattyy_pvm + "</p>"; 
+		}
+		document.getElementById("vastaus").innerHTML = "<p>" + teksti + "</p>";
+
+
+	}
+
+			
+	haeTyopaikat();
+
+	</script>
+</body>
+</html>
