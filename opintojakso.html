@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XX</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 7em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Opintojakso  tunnukset</h3>
+
+	<form>
+		<label>Kurssitunnus:</label> 
+		<p> <input type="text" id="tunnus" size="20"> </p>
+		<input type="button" value="Kerro" onclick="laskeTunnus()">
+	</form>
+
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	 function laskeTunnus() {
+		var tunnus = document.getElementById("tunnus").value;
+		
+		tunnus = tunnus.trim();
+
+		var lukukausi = tunnus.charAt(3)
+		var koodi = tunnus.substr(4,2).toLowerCase();
+		
+		var opmuoto = "";
+		if (koodi == "ta") {
+			opmuoto = "monimuoto";
+		}else if (koodi == "tn") {
+			opmuoto = "päivä";
+		}else if (koodi == "tf") {
+			opmuoto = "biten";
+		}
+		
+		document.getElementById("vastaus").innerHTML = 
+		"<p>" + lukukausi + ". " + "lukukauden " + opmuoto + 
+			" opintojakso" + "</p>";
+	}
+	</script>
+</body>
+</html>

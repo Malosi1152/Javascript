@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XX</title>
+
+<style type="text/css">
+label {
+  display: block;
+  width: 12em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Diesel</h3>
+
+	<form>
+		<p><label>Ajetut kilometrit vuodessa:</label> 
+		<input type="text" id="km" size="6"> </p> 
+		
+		<p><label>Kulutus per/100km:</label> 
+		<input type="text" id="kulutus" size="4"> </p> 
+		
+		<p><label>Käyttövoimavero:</label> 
+		<input type="text" id="vero" size="4"> </p> 
+
+		<input type="button" value="Laske" onclick="laskeDielsel()">
+	</form>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	function laskeDielsel() {
+		var kilometrit = parseInt(document.getElementById("km").value);
+		var kulutus = parseFloat(document.getElementById("kulutus").value);
+		var vero = parseInt(document.getElementById("vero").value);
+
+	
+		var nousu = laskeKustannusnousu(kilometrit, kulutus);
+		var voitto = laskeVoitto(nousu,vero);
+
+		var vastaus = "Muutos tarkoittaa " + voitto.toFixed(2) + " euroa"
+
+		document.getElementById("vastaus").innerHTML = vastaus;
+	}
+
+	function laskeKustannusnousu(kilometrit, kulutus) {
+		var litrat = (kilometrit/100) * kulutus;
+		return litrat * 0.2595;
+	}
+
+	function laskeVoitto(nousu, vero) {
+		return nousu - vero;
+		
+	}
+	</script>
+</body>
+</html>

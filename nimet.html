@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XX</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Nimet</h3>
+
+	<form>
+		<label>Nimi:</label> 
+		<input type="text" id="nimi"> 
+		<input type="button" value="Lisää" onclick="lisaaNimi()">
+	</form>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 var nimet = [];
+	function lisaaNimi() {
+		
+		
+		var nimi = document.getElementById("nimi").value;
+		
+		var paikka = nimet.length;
+		nimet[paikka] = nimi.toUpperCase();
+		nimet.sort();
+
+		naytaNimet();
+		document.getElementById("nimi").value = "";
+	}
+		
+	function naytaNimet() {
+		var teksti = "";
+		var i;
+		nimet.sort();
+
+		for (i=0; i < nimet.length; i++) {
+			teksti = teksti + nimet[i] + "<br>";
+		}
+	
+		document.getElementById("vastaus").innerHTML = "<p>" 
+			+ "Nimet ovat aakkosjärjestyksessä<br>" + teksti + "</p>";
+	}
+
+	</script>
+</body>
+</html>

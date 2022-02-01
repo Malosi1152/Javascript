@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Kertotaulu</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 6em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Kertotaulu</h3>
+
+	<form>
+		<p>
+			<label>Luku:</label> 
+			<input type="text" id="luku" size="1"> </p> 
+		<p>
+		<p>
+			<label>Esitysmuoto:</label> 
+			<select id="rivi"> 
+				<option value="2">2 rivillä</option>
+				<option value="3">3 rivillä</option>
+				<option value="4">4 rivillä</option>
+			</select> 
+		</p>
+		<input type="button" value="Näytä" onclick="kertoLaskin()">
+	</form>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	function kertoLaskin() {
+
+		var luku = document.getElementById("luku").value;
+		var valittu = document.getElementById("rivi").selectedIndex;
+		var rivitys = document.getElementById("rivi").options[valittu].value;
+		
+		var teksti = "";
+
+		for (var i = 1; i <=20; i++) {
+			teksti = teksti + (i * luku) + " ";
+			if (i % rivitys == 0) {
+				teksti = teksti + "<br>";
+			}
+		}
+
+
+		document.getElementById("vastaus").innerHTML = "<p>" + teksti + "</p>";
+	}
+	</script>
+</body>
+</html>

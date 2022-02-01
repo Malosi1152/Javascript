@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>6. Arvosana</title>
+
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>6. Arvosana</h3>
+
+
+	
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+		var tilasto = [3, 4, 7, 6, 9, 4];
+		var lkm = 0;
+
+		for (var i = 0; i < tilasto.length; i++){
+			lkm = lkm + tilasto[i];
+		}
+		
+
+		var prosentti;
+		var teksti = "";
+		
+		for (i = 0; i < tilasto.length; i++) {
+			prosentti = tilasto[i] / lkm * 100;
+			teksti = teksti + i + ": " + tilasto[i] + " kpl, " +
+			prosentti.toFixed(1) + "%<br>";
+					}
+		
+	
+	document.getElementById("vastaus").innerHTML = "<p>" + teksti + "</p>";
+	
+	</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XX</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 8em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Opiskelijanumero</h3>
+
+	<form>
+		<label>Opiskelijanumero:</label> 
+		<input type="text" id="opnr" size="9"> 
+		<input type="button" value="Kerro aloitusvuosi" onclick="laskeVuosi()">
+	</form>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	function laskeVuosi() {
+		var opnr = document.getElementById("opnr").value;
+		opnr = opnr.trim();
+
+		var aloitusvuosi = opnr.substr(1,2);
+		aloitusvuosi = parseInt(aloitusvuosi);
+		vastaus = aloitusvuosi + 2000;
+		
+		document.getElementById("vastaus").innerHTML = "<p>Aloitusvuosi oli " + vastaus + "</p>";
+	}
+	</script>
+</body>
+</html>

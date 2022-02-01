@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Kuvat</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Kuvat</h3>
+	
+	<div id="vastaus">
+		<img id="vastaus" alt="seliteteksti" height="100" width="100">
+	</div>
+		
+	 <script type="text/javascript">
+	
+	var kuvia = ["https://myy.haaga-helia.fi/~swd1ta001/kuvatJS/assi.jpg",
+				"https://myy.haaga-helia.fi/~swd1ta001/kuvatJS/myynti.jpg",
+				"https://myy.haaga-helia.fi/~swd1ta001/kuvatJS/tiko.jpg",
+				"https://myy.haaga-helia.fi/~swd1ta001/kuvatJS/yleinen1.jpg",
+				"https://myy.haaga-helia.fi/~swd1ta001/kuvatJS/yleinen2.jpg"];
+
+	 function listaa() {
+			
+		var teksti = "";
+
+		for (var i = 0; i < kuvia.length; i++) {
+			teksti = teksti + "<img src='" + kuvia[i] +
+			"' alt='seliteteksti' height='100' width='100'> "
+			}
+
+			document.getElementById("vastaus").innerHTML = "<p>" + teksti  + "</p>";
+		}
+
+	listaa();
+
+	</script>
+</body>
+</html>

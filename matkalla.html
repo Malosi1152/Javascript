@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XX</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 9em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Matkalaskuri</h3>
+
+	<form>
+		<label>Ajoaika minuutteina</label> 
+		<input type="text" id="minuutit" size="4"> 
+		<input type="button" value="Muunna" onclick="laskeVastaus()">
+	</form>
+	<div id="vastaus"></div>
+	
+
+	 <script type="text/javascript">
+	function laskeVastaus() {
+
+		var aika = document.getElementById("minuutit").value;
+		
+		var tunnit = Math.floor (aika / 60);
+		var minuutit = aika % 60;
+		var pyoristetty = Math.ceil (aika / 60);
+
+		document.getElementById("vastaus").innerHTML =
+		"<p>" +  "Tunteja " + tunnit + " ja minuutteja " + minuutit + "<br> " +
+		"Pyöristetty lähimpään tuntiin " + pyoristetty;
+	}
+	</script>
+</body>
+</html>

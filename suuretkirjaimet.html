@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XX</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Suurety kirjaimet</h3>
+
+	<form>
+		<label>Nimi:</label> 
+		<p><input type="text" id="nimi" size="9"> </p> 
+		<input type="button" value="Suurella" onclick="naytaSuuret()">
+	</form>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	function naytaSuuret() {
+		var nimi = document.getElementById("nimi").value;
+
+		nimi = nimi.trim();
+		nimi = nimi.toUpperCase();
+
+		
+		document.getElementById("vastaus").innerHTML = "<p>Nimi suurella " + nimi + "</p>";
+	}
+	</script>
+</body>
+</html>

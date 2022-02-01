@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XX</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 6em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Osakkeet</h3>
+
+	<form>
+		<label>Ostohinta:</label> 
+		<p><input type="text" id="osto" size="6"> </p>
+		<label>Myyntihinta:</label> 
+		<p><input type="text" id="myynti" size="6"> </p>
+		<label>Myyty määrä:</label> 
+		<p><input type="text" id="maara" size="6"> </p>
+		<input type="button" value="Laske" onclick="haeArvot()">
+	</form>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	function haeArvot() {
+		var osto = document.getElementById("osto").value;
+		var myynti = document.getElementById("myynti").value;
+		var maara = document.getElementById("maara").value;
+
+		var vastaus = laskeOsakkeet(osto, maara, myynti);
+		
+		document.getElementById("vastaus").innerHTML = "<p>Voitto/tappio on " 
+			+ vastaus.toFixed(2) + "</p>";
+	}
+
+	function laskeOsakkeet(osto, maara, myynti){
+		var tulos = (myynti - osto) * maara;
+		if (tulos > 0) {
+			tulos = tulos - (tulos * 30 /100);
+		}
+		return tulos;
+	}
+
+	</script>
+</body>
+</html>

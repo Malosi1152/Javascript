@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tänään</title>
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+
+		var tanaan = new Date();
+
+		var paiva = tanaan.getDate();
+		var kuukausi = tanaan.getMonth() + 1;
+		var vuosi = tanaan.getFullYear();
+
+		var vastaus = "<p>Tänään on " + paiva + "." + kuukausi + "." + vuosi + "</p>";
+
+		document.getElementById("vastaus").innerHTML = vastaus;
+	
+	</script>
+</body>
+</html>

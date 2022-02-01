@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Kello ja viikonloppu</title>
+
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+		 
+		 var tanaan = new Date();
+		 var tunnit = tanaan.getHours();
+		 var minuutit = tanaan.getMinutes();
+
+		 var viikonloppu = tanaan.getDay(0,6);
+		 
+		if (tunnit < 10){
+			tunnit = "0" + tunnit;
+		}
+
+
+		 if (viikonloppu == 0|| viikonloppu == 6){
+			 teksti ="Nyt on viikonloppu"
+			 }
+			 
+			 else {
+				 teksti = "Nyt ei ole viikonloppu"
+		 }
+		
+		
+		
+		document.getElementById("vastaus").innerHTML = "<p>Kello on " +
+			 tunnit + ":" + minuutit + ".<br>" + teksti + "</p>";
+	
+	</script>
+</body>
+</html>

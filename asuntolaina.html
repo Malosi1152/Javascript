@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XX</title>
+
+<style type="text/css">
+label {
+  display: block;
+  width: 5em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Korkolaskuri</h3>
+
+	<form>
+		<label>Korot:</label> 
+		<input type="text" id="korot" size="6"> 
+		<input type="button" value="Laske" onclick="korkolaskuri()">
+	</form>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	function korkolaskuri() {
+		var korot = document.getElementById("korot").value;
+		var korot;
+		var vahennys = 0.15;
+		var vahennys;
+
+		var vastausnakyy = korkkojen(korot, vahennys); 
+		
+		document.getElementById("vastaus").innerHTML = "<p>Vähennys on " +
+			 vastausnakyy.toFixed(2) + "</p>";
+	
+	function korkkojen(korot, vahennys) {
+		var vastaus = korot * vahennys;
+		return vastaus;
+	}
+}
+	</script>
+</body>
+</html>

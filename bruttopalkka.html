@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XX</title>
+
+<style type="text/css">
+label {
+  display: block;
+  width: 6em;
+  float: left;
+}
+</style>
+</head>
+<body>
+	<h3>Bruttopalkka</h3>
+
+	<form>
+		<p><label>Tunnit:</label> 
+		<input type="text" id="tunnit" size="3"> </p> 
+		<p><label>Tuntipalkka:</label> 
+		<input type="text" id="tuntipalkka" size="5"> </p> 
+		<input type="button" value="Laske palkka" onclick="laskePalkka()">
+	</form>
+
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	function laskePalkka() {
+		var tuntipalkka = document.getElementById("tuntipalkka").value;
+		var tuntipalkka;
+		var tunnit = document.getElementById("tunnit").value;
+		var tunnit;
+
+		var bruttopalkka = laskeBrutto(tunnit, tuntipalkka);
+
+		document.getElementById("vastaus").innerHTML = "<p>Bruttopalkka on " + bruttopalkka + "</p>";
+
+		function laskeBrutto(tunnit, tuntipalkka) {
+			var brutto = tuntipalkka * tunnit;
+			return brutto;
+		}
+
+	}
+	</script>
+</body>
+</html>
